@@ -1,0 +1,104 @@
+[
+  {
+    "region": "Dhaka",
+    "district": "Dhaka",
+    "city": "Dhaka",
+    "upazila": ["Dhanmondi", "Gulshan", "Mirpur", "Uttara", "Tejgaon", "Motijheel", "Savar", "Keraniganj"]
+  },
+  {
+    "region": "Dhaka",
+    "district": "Gazipur",
+    "city": "Gazipur",
+    "upazila": ["Gazipur Sadar", "Tongi", "Kaliakair", "Kapasia", "Sreepur"]
+  },
+  {
+    "region": "Dhaka",
+    "district": "Narayanganj",
+    "city": "Narayanganj",
+    "upazila": ["Narayanganj Sadar", "Bandar", "Rupganj", "Sonargaon"]
+  },
+  {
+    "region": "Chittagong",
+    "district": "Chattogram",
+    "city": "Chattogram",
+    "upazila": ["Pahartali", "Kotwali", "Panchlaish", "Halishahar", "Patenga", "Sitakunda", "Raozan"]
+  },
+  {
+    "region": "Chittagong",
+    "district": "Cox's Bazar",
+    "city": "Cox's Bazar",
+    "upazila": ["Cox's Bazar Sadar", "Teknaf", "Ukhiya", "Chakaria", "Ramu", "Maheshkhali"]
+  },
+  {
+    "region": "Rajshahi",
+    "district": "Rajshahi",
+    "city": "Rajshahi",
+    "upazila": ["Boalia", "Rajpara", "Paba", "Godagari", "Durgapur", "Bagmara"]
+  },
+  {
+    "region": "Rajshahi",
+    "district": "Natore",
+    "city": "Natore",
+    "upazila": ["Natore Sadar", "Baraigram", "Bagatipara", "Lalpur", "Gurudaspur"]
+  },
+  {
+    "region": "Khulna",
+    "district": "Khulna",
+    "city": "Khulna",
+    "upazila": ["Khalishpur", "Sonadanga", "Daulatpur", "Dighalia", "Batiaghata"]
+  },
+  {
+    "region": "Khulna",
+    "district": "Bagerhat",
+    "city": "Bagerhat",
+    "upazila": ["Bagerhat Sadar", "Fakirhat", "Rampal", "Mongla", "Morrelganj"]
+  },
+  {
+    "region": "Barisal",
+    "district": "Barisal",
+    "city": "Barisal",
+    "upazila": ["Barisal Sadar", "Babuganj", "Muladi", "Hizla", "Bakerganj"]
+  },
+  {
+    "region": "Barisal",
+    "district": "Patuakhali",
+    "city": "Patuakhali",
+    "upazila": ["Patuakhali Sadar", "Kalapara", "Dashmina", "Bauphal", "Galachipa"]
+  },
+  {
+    "region": "Sylhet",
+    "district": "Sylhet",
+    "city": "Sylhet",
+    "upazila": ["Sylhet Sadar", "Beanibazar", "Golapganj", "Companiganj", "Zakiganj"]
+  },
+  {
+    "region": "Sylhet",
+    "district": "Moulvibazar",
+    "city": "Moulvibazar",
+    "upazila": ["Moulvibazar Sadar", "Kulaura", "Sreemangal", "Barlekha", "Juri"]
+  },
+  {
+    "region": "Mymensingh",
+    "district": "Mymensingh",
+    "city": "Mymensingh",
+    "upazila": ["Mymensingh Sadar", "Trishal", "Bhaluka", "Gouripur", "Muktagacha"]
+  },
+  {
+    "region": "Mymensingh",
+    "district": "Jamalpur",
+    "city": "Jamalpur",
+    "upazila": ["Jamalpur Sadar", "Melandaha", "Dewanganj", "Madarganj", "Sarishabari"]
+  },
+  {
+    "region": "Rangpur",
+    "district": "Rangpur",
+    "city": "Rangpur",
+    "upazila": ["Rangpur Sadar", "Pirganj", "Badarganj", "Mithapukur", "Gangachara"]
+  },
+  {
+    "region": "Rangpur",
+    "district": "Dinajpur",
+    "city": "Dinajpur",
+    "upazila": ["Dinajpur Sadar", "Birganj", "Parbatipur", "Nawabganj", "Fulbari"]
+  }
+]
