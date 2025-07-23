@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
+import Errorpage from "../pages/ErrorPage";
 
 
 
@@ -32,7 +33,12 @@ import Register from "../pages/Authentication/Register/Register";
         loader: ()=> fetch('./operatingArea.json')
       }
     ]
-  }
+  },
+
+  {
+path : "/*",
+element : <Errorpage></Errorpage> ,
+  },
 ]);
 
 

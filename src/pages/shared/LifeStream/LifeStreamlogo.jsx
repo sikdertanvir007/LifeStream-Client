@@ -5,7 +5,7 @@ const LifeStreamlogo = () => {
     return (
        <Link to="/">
         <div className='flex items-center'>
-            <img className='w-20'  src={logo} alt="" />
+            <img className='w-15'  src={logo} alt="" />
             <h1 className='text-3xl font-bold text-red-600 '>LifeStream</h1>
         </div>
        </Link>

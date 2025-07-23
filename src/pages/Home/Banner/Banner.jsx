@@ -4,7 +4,7 @@ import bloodBannerImage from "../../../../public/Blood donation illustration.png
 
 const Banner = () => {
   return (
-    <section className="bg-red-50 pt-28 md:pt-32 pb-16 px-4 md:px-10 rounded-2xl">
+    <section className="bg-red-50 pt-30 md:pt-40 pb-16 px-4 md:px-10 rounded-2xl">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left Content */}
         <div className="text-center md:text-left max-w-xl">
