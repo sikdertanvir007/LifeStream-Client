@@ -1,67 +1,75 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import { useParams } from 'react-router';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import Loading from '../../Loading';
+import useAuth from '../../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const FundingForm = () => {
-    const stripe = useStripe();
-    const elements = useElements();
-    const axiosSecure = useAxiosSecure();
-const [error,setError] =useState('');
-const {id} = useParams();
-console.log(id);
+  const stripe = useStripe();
+  const elements = useElements();
+  const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
+  const [error, setError] = useState('');
+  const [amount, setAmount] = useState('');
 
-const {isPending,data:fundingInfo={}} = useQuery({
-    queryKey:['funding',id],
-    queryFn: async()=>{
-const res = await axiosSecure.get(`/donation-requests/${id}`);
-return res.data;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!stripe || !elements) return;
+
+    try {
+      const card = elements.getElement(CardElement);
+      if (!card) return;
+
+      const { data } = await axiosSecure.post('/create-payment', { amount });
+      const clientSecret = data.clientSecret;
+
+      const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card,
+          billing_details: {
+            name: user.displayName || 'Anonymous',
+            email: user.email,
+          },
+        },
+      });
+
+      if (confirmError) throw new Error(confirmError.message);
+
+      if (paymentIntent.status === 'succeeded') {
+        // save to DB
+        const fundingData = {
+          name: user.displayName,
+          email: user.email,
+          amount: parseFloat(amount),
+          date: new Date(),
+        };
+        await axiosSecure.post('/fundings', fundingData);
+        Swal.fire('Success!', 'Thanks for your contribution! 🎉', 'success');
+        setAmount('');
+        card.clear();
+      }
+    } catch (err) {
+      setError(err.message);
     }
-})
+  };
 
-if(isPending){
-    return <Loading></Loading>
-}
-
-console.log(fundingInfo);
-    const handleSubmit = async(e) => {
-        e.preventDefault();
-        if(!stripe || !elements) {
-            return;
-        }
-        const card = elements.getElement(CardElement);
-        if(!card) {
-            return;
-        }
-        const {error,paymentMethod} = await stripe.createPaymentMethod({
-            type: 'card',
-            card
-        })
-        if(error){
-            setError(error.message);
-        } else{
-            setError('');
-            console.log('[PaymentMethod]', paymentMethod);
-        }
-        // Handle form submission logic here
-    }
-    return (
-        <div>
-            <form onSubmit={handleSubmit} className='space-y-4 bg-white p-6 rounded-xl shadow-md w-full max-w-md mx-auto'>
-<CardElement className='p-2 border rounded'>
-    
-</CardElement>
-<button type='submit' className='btn btn-primary w-full ' disabled={!stripe}>
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-md max-w-md mx-auto">
+      <input
+        type="number"
+        className="input input-bordered w-full"
+        placeholder="Enter amount"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        required
+      />
+      <CardElement className="p-2 border rounded" />
+      <button type="submit" className="btn btn-primary w-full" disabled={!stripe}>
         Make a Fund
-    </button>
-    {
-        error && <p className='text-red-500'>{error}</p>
-    }
-            </form>
-        </div>
-    );
+      </button>
+      {error && <p className="text-red-500">{error}</p>}
+    </form>
+  );
 };
 
 export default FundingForm;
