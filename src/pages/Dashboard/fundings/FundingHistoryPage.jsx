@@ -15,7 +15,7 @@ const FundingHistoryPage = () => {
   const [page, setPage] = useState(1);
   const limit = 5;
 
-  const { data, isPending } = useQuery({
+  const { data, isPending,refetch } = useQuery({
     queryKey: ['userFundings', user?.email, page],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user-fundings?email=${user.email}&page=${page}&limit=${limit}`);
@@ -32,7 +32,7 @@ const FundingHistoryPage = () => {
     <div className="max-w-4xl mx-auto space-y-8 p-6">
       <div className="text-right">
         <Elements stripe={stripePromise}>
-          <FundingForm />
+          <FundingForm onSuccess={refetch} />
         </Elements>
       </div>
 

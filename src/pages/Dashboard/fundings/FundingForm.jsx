@@ -4,7 +4,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 
-const FundingForm = () => {
+const FundingForm = ({ onSuccess }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
@@ -45,6 +45,11 @@ const FundingForm = () => {
         };
         await axiosSecure.post('/fundings', fundingData);
         Swal.fire('Success!', 'Thanks for your contribution! 🎉', 'success');
+
+if (onSuccess) {
+    onSuccess();
+  }
+
         setAmount('');
         card.clear();
       }
@@ -54,7 +59,7 @@ const FundingForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-md max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-lg max-w-md mx-auto">
       <input
         type="number"
         className="input input-bordered w-full"
@@ -64,7 +69,7 @@ const FundingForm = () => {
         required
       />
       <CardElement className="p-2 border rounded" />
-      <button type="submit" className="btn btn-primary w-full" disabled={!stripe}>
+      <button type="submit" className="btn bg-red-500 text-white w-full" disabled={!stripe}>
         Make a Fund
       </button>
       {error && <p className="text-red-500">{error}</p>}

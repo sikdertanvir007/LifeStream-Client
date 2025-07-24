@@ -2,6 +2,9 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import LifeStreamlogo from '../pages/shared/LifeStream/LifeStreamlogo';
 import { NavLink } from 'react-router';
+import { FaHome } from "react-icons/fa";
+import { RiHandHeartLine } from "react-icons/ri";
+import { MdOutlinePayments } from "react-icons/md";
 
 const DashboardLayout = () => {
     return (
@@ -40,11 +43,28 @@ const DashboardLayout = () => {
   </div>
   <div className="drawer-side">
     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 gap-y-6">
       {/* Sidebar content here */}
       <LifeStreamlogo></LifeStreamlogo>
-      <li><a>Home</a></li>
-      <li><NavLink to="/dashboard/my-donation-requests">My Donation Requests</NavLink></li>
+      <li>
+    <NavLink  to="/dashboard">
+      <FaHome className="inline mr-2" />
+      Home
+    </NavLink>
+  </li>
+  <li>
+    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold  ' : '')} to="/dashboard/my-donation-requests">
+      <RiHandHeartLine className="inline mr-2" />
+      My Donation Requests
+    </NavLink>
+  </li>
+  <li>
+    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold ' : '')} to="/dashboard/funding-history">
+      <MdOutlinePayments className="inline mr-2" />
+      My Funding History
+    </NavLink>
+  </li>
+      
     </ul>
   </div>
 </div>

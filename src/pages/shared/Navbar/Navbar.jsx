@@ -38,7 +38,7 @@ const Navbar = () => {
               <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/dashboard">Donation requests</NavLink>
               <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-categories">Blog</NavLink>
                {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-products">
+  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/dashboard/funding-history">
     Funding links
   </NavLink>
 )}
@@ -58,7 +58,7 @@ const Navbar = () => {
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard">Donation requests</NavLink>
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-categories">Blog</NavLink>
             {user && (
-  <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-products">
+  <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard/funding-history">
      Funding links
   </NavLink>
 )}
