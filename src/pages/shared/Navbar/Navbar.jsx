@@ -35,22 +35,14 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/">Home</NavLink>
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-categories">Categories</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/dashboard">Donation requests</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-categories">Blog</NavLink>
                {user && (
   <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-products">
-    All Products 
+    Funding links
   </NavLink>
 )}
-              {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')}  to="/add-product">
-    Add Product 
-  </NavLink>
-)}
-              {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to={`/my-products?email=${user.email}`}>
-    My Products
-</NavLink>)}
+            
 
             
              
@@ -63,34 +55,14 @@ const Navbar = () => {
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-8">
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/">Home</NavLink>
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-categories">Categories</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard">Donation requests</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-categories">Blog</NavLink>
             {user && (
   <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-products">
       All Products 
   </NavLink>
 )}
 
-{user && (
-<NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/add-product">
-    Add Product
-  </NavLink>
-)}
-
-          {user && (
-  <NavLink
-    to={`/my-products?email=${user.email}`}
-   className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')}
-  >
-    My Products
-  </NavLink>
-)}
-
-{
-  user && (
-    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard">Dashboard</NavLink>
-  )
-}
 
 
 
@@ -101,42 +73,40 @@ const Navbar = () => {
           </ul>
         </div>
 
-       <div className="navbar-end space-x-4 items-center flex">
-  {user ? (
-    <>
-      <img
-        src={user.photoURL}
-        alt="User"
-        className="w-10 h-10 rounded-full"
-        title={user.displayName}
-      />
-      <Link
-        to="/"
-        onClick={handleLogOut}
-        className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300"
-      >
-        LogOut
-      </Link>
-    </>
-  ) : (
-    <>
-      <FaUserXmark size={32} />
-      <Link
-        to="/login"
-        className="btn border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white rounded transition duration-300"
-      >
-        Login
-      </Link>
-      <Link
-        to="/register"
-        className="btn border border-green-500 text-green-500 hover:bg-green-500 hover:text-white rounded transition duration-300"
-      >
-        Register
-      </Link>
-    </>
-  )}
-</div>
-
+        <div className="navbar-end flex items-center gap-4">
+        {!user ? (
+          <>
+            <Link
+              to="/login"
+              className="btn btn-sm border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+            >
+              Login
+            </Link>
+            
+          </>
+        ) :  (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="avatar online w-10 rounded-full ring ring-red-400 ring-offset-base-100 ring-offset-2"
+            >
+              <img src={user.photoURL} alt="avatar" title={user.displayName} />
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-44 z-[100]"
+            >
+              <li>
+                <NavLink to="/dashboard">Dashboard</NavLink>
+              </li>
+              <li>
+                <button onClick={handleLogOut}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
       </div>
     
   );
