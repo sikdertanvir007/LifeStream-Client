@@ -16,16 +16,16 @@ const Banner = () => {
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Link
-              to="/donate"
+              to="/register"
               className="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md"
             >
-              Donate Now
+              Join as a Donor
             </Link>
             <Link
               to="/request"
               className="border border-red-600 text-red-600 hover:bg-red-100 font-semibold px-6 py-3 rounded-lg"
             >
-              Request Blood
+              Search Donors
             </Link>
           </div>
         </div>

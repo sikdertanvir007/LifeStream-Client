@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
+import Swal from 'sweetalert2'; // import SweetAlert2
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
@@ -13,15 +14,30 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const { email, password } = data;
-    setLoginError(""); // Clear previous errors
+    setLoginError("");
 
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+
+        Swal.fire({
+          title: 'Login Successful!',
+          text: `Welcome back, ${user.displayName || user.email}`,
+          icon: 'success',
+          confirmButtonColor: '#d33',
+        });
+
         navigate(location.state?.from?.pathname || "/");
       })
       .catch(() => {
         setLoginError("Invalid Email or Password. Please try again.");
+
+        Swal.fire({
+          title: 'Login Failed',
+          text: 'Invalid Email or Password. Please try again.',
+          icon: 'error',
+          confirmButtonColor: '#d33',
+        });
       });
   };
 

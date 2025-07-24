@@ -4,7 +4,12 @@ import Home from "../pages/Home/Home";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
-import Errorpage from "../pages/ErrorPage";
+
+import PrivateRoute from "../routes/PrivateRoute";
+import DashboardLayout from "../layouts/DashboardLayout";
+import MyDonationRequests from "../pages/Dashboard/MyDonationRequests";
+import CreateDonationRequest from "../pages/CreateDonationRequest";
+import ErrorPage from "../pages/Errorpage";
 
 
 
@@ -35,9 +40,29 @@ import Errorpage from "../pages/ErrorPage";
     ]
   },
 
+
+{
+  path:'/dashboard',
+  element: <PrivateRoute>
+    <DashboardLayout></DashboardLayout>
+  </PrivateRoute>,
+  children:[
+    {
+    path:'my-donation-requests',
+    Component: MyDonationRequests,
+    },
+    {
+      path: 'create-donation-request',
+      Component: CreateDonationRequest,
+      loader: () => fetch('/operatingArea.json').then(res => res.json())
+    }
+  ]
+},
+
+
   {
 path : "/*",
-element : <Errorpage></Errorpage> ,
+element : <ErrorPage></ErrorPage> ,
   },
 ]);
 
