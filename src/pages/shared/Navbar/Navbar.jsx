@@ -59,7 +59,7 @@ const Navbar = () => {
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-categories">Blog</NavLink>
             {user && (
   <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-products">
-      All Products 
+     Funding links
   </NavLink>
 )}
 

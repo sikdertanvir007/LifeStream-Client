@@ -10,6 +10,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import MyDonationRequests from "../pages/Dashboard/MyDonationRequests";
 import CreateDonationRequest from "../pages/CreateDonationRequest";
 import ErrorPage from "../pages/Errorpage";
+import FundingHistoryPage from "../pages/Dashboard/fundings/FundingHistoryPage";
+
 
 
 
@@ -55,6 +57,10 @@ import ErrorPage from "../pages/Errorpage";
       path: 'create-donation-request',
       Component: CreateDonationRequest,
       loader: () => fetch('/operatingArea.json').then(res => res.json())
+    },
+    {
+      path: 'funding-history',
+      Component: FundingHistoryPage,
     }
   ]
 },
