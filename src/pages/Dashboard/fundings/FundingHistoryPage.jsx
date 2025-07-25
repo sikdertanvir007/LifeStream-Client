@@ -10,21 +10,22 @@ import Loading from '../../Loading';
 const stripePromise = loadStripe(import.meta.env.VITE_payment_Key);
 
 const FundingHistoryPage = () => {
-  const { user } = useAuth();
+  const { user,loading } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [page, setPage] = useState(1);
   const limit = 5;
 
-  const { data, isPending,refetch } = useQuery({
+  const { data, isLoading ,refetch } = useQuery({
     queryKey: ['userFundings', user?.email, page],
     queryFn: async () => {
       const res = await axiosSecure.get(`/user-fundings?email=${user.email}&page=${page}&limit=${limit}`);
       return res.data;
     },
-    enabled: !!user?.email,
+    enabled: !!user?.email && !loading,
+    keepPreviousData: true,
   });
 
-  if (isPending) return <Loading />;
+  if (loading || isLoading) return <Loading />;
 
   const totalPages = Math.ceil(data.total / limit);
 

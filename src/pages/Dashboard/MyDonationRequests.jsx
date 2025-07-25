@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import Loading from "../Loading";
 
 const MyDonationRequests = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -15,6 +15,9 @@ const MyDonationRequests = () => {
   const [statusFilter, setStatusFilter] = useState("");
   const [page, setPage] = useState(1);
   const limit = 5;
+
+
+
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["my-donation-requests", user.email, statusFilter, page],
@@ -28,7 +31,7 @@ const MyDonationRequests = () => {
       const res = await axiosSecure.get(`/my-donation-requests?${params.toString()}`);
       return res.data;
     },
-    enabled: !!user?.email,
+    enabled: !!user?.email && !loading,
     keepPreviousData: true,
   });
 
@@ -69,6 +72,8 @@ const MyDonationRequests = () => {
     }
   };
 
+
+   if (loading || !user?.email) return <Loading />;
   if (isLoading) return <Loading />;
   if (error) return <div>Error loading requests</div>;
 
