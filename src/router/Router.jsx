@@ -14,6 +14,7 @@ import FundingHistoryPage from "../pages/Dashboard/fundings/FundingHistoryPage";
 import Profile from "../pages/Dashboard/Profile";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import EditDonationRequest from "../pages/Dashboard/EditDonationRequest";
+import AllUsersPage from "../pages/Dashboard/AllUsersPage";
 
 
 
@@ -76,7 +77,11 @@ import EditDonationRequest from "../pages/Dashboard/EditDonationRequest";
     {
       path: 'edit-donation/:id',
       Component: EditDonationRequest,
-    }
+    },
+    {
+  path: '/dashboard/all-users',
+  Component: AllUsersPage,
+}
   ]
 },
 

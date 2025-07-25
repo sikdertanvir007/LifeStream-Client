@@ -70,6 +70,12 @@ const DashboardLayout = () => {
       My Profile
     </NavLink>
   </li>
+  <li>
+    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold ' : '')} to="/dashboard/all-users">
+      <MdOutlinePayments className="inline mr-2" />
+      All Users
+    </NavLink>
+  </li>
       
     </ul>
   </div>

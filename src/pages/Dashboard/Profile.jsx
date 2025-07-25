@@ -23,7 +23,7 @@ const Profile = () => {
     queryKey: ['userProfile', user?.email],
     enabled: !!user?.email,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users?email=${user.email}`);
+      const res = await axiosSecure.get(`/api/users?email=${user.email}`);
       return res.data;
     },
   });
@@ -44,7 +44,7 @@ const Profile = () => {
   // ✅ Mutation to update profile
   const { mutate: updateUserProfile, isPending } = useMutation({
     mutationFn: async (updatedData) => {
-      const res = await axiosSecure.put(`/users/${user.email}`, updatedData);
+      const res = await axiosSecure.put(`/api/users/${user.email}`, updatedData);
       return res.data;
     },
     onSuccess: () => {

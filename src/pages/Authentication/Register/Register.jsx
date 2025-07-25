@@ -63,6 +63,7 @@ const Register = () => {
         district: data.district,
         upazila: data.upazila,
         role: 'donor',
+        status:'Active',
         created_at: new Date().toISOString(),
         last_log_in: new Date().toISOString(),
 
