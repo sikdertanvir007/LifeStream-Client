@@ -84,7 +84,7 @@ const AllUsersPage = () => {
               <tr key={user._id}>
                 <td>
                   <img
-                    src={user.photoURL || '/default-avatar.png'}
+                    src={user.avatar || '/default-avatar.png'}
                     alt={user.name || user.email}
                     className="w-10 h-10 rounded-full"
                   />
