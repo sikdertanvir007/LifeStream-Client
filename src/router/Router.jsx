@@ -21,6 +21,11 @@ import PublicRequestsPage from "../pages/PublicRequestsPage";
 import DonationRequestDetail from "../pages/DonationRequestDetail";
 import Forbidden from "../pages/Forbidden/Forbidden";
 import AdminRoute from "../routes/AdminRoute";
+import ContentManagementPage from "../pages/Dashboard/ContentManagementPage";
+import AddBlogPage from "../pages/Dashboard/AddBlogPage";
+import BlogPage from "../pages/BlogPage";
+import BlogDetailsPage from "../pages/BlogDetailsPage";
+import EditBlogPage from "../pages/Dashboard/EditBlogPage";
 
 
 
@@ -94,10 +99,31 @@ import AdminRoute from "../routes/AdminRoute";
   Component: AllDonationRequests,
 },
 
+{
+  path:'content-management',
+  Component: ContentManagementPage,
+},
+
+{
+  path: 'content-management/add-blog',
+  Component: AddBlogPage,
+},
+{
+  path: 'content-management/edit/:id',
+  Component: EditBlogPage
+},
   ]
 },
 
+{
+  path:'/blogs',
+  Component: BlogPage
+},
 
+{
+  path: '/blogs/:id',
+  element: <PrivateRoute><BlogDetailsPage></BlogDetailsPage></PrivateRoute>,
+},
 
 {
   path: '/public-requests',

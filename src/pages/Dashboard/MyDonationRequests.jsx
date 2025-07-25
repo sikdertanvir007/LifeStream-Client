@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import Loading from "../Loading";
 
@@ -183,12 +183,12 @@ const MyDonationRequests = () => {
                 </td>
                 <td>
                   <div className="flex flex-col gap-4">
-                    <button
-                      onClick={() => navigate(`/dashboard/edit-donation-request/${req._id}`)}
+                    <Link
+                      to={`/dashboard/edit-donation/${req._id}`}
                       className="btn btn-warning btn-sm"
                     >
                       Edit
-                    </button>
+                    </Link>
                     <button
                       onClick={() => handleDelete(req._id)}
                       className="btn btn-error btn-sm"
@@ -196,12 +196,12 @@ const MyDonationRequests = () => {
                     >
                       Delete
                     </button>
-                    <button
-                      onClick={() => navigate(`/dashboard/donation-request-details/${req._id}`)}
+                    <Link
+                      to={`/donation-request/${req._id}`}
                       className="btn btn-info btn-sm"
                     >
                       View
-                    </button>
+                    </Link>
                   </div>
                 </td>
               </tr>

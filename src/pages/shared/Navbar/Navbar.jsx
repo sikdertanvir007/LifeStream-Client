@@ -35,8 +35,8 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/dashboard">Donation requests</NavLink>
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/all-categories">Blog</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/public-requests">Donation requests</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/blogs">Blog</NavLink>
                {user && (
   <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/dashboard/funding-history">
     Funding links
@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-8">
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/public-requests">Donation requests</NavLink>
-            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/all-categories">Blog</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/blogs">Blog</NavLink>
             {user && (
   <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard/funding-history">
      Funding links

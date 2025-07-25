@@ -6,7 +6,10 @@ import { FaHome } from "react-icons/fa";
 import { RiHandHeartLine } from "react-icons/ri";
 import { MdOutlinePayments } from "react-icons/md";
 import useRole from '../hooks/useRole'; // 👈 import your hook
-import Loading from '../pages/Loading'; // Optional: loading spinner
+import Loading from '../pages/Loading'; 
+import {  MdPeople, MdManageSearch, MdDashboardCustomize } from 'react-icons/md';
+import { FaUserEdit } from 'react-icons/fa';
+import { RiFileList2Line } from 'react-icons/ri';// Optional: loading spinner
 
 const DashboardLayout = () => {
   const { role, roleLoading } = useRole();
@@ -68,40 +71,54 @@ const DashboardLayout = () => {
             
 
           {/* All roles */}
-          <li>
-            <NavLink to="/dashboard/profile" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
-              <MdOutlinePayments className="inline mr-2" />
-              My Profile
-            </NavLink>
-          </li>
+        <li>
+  <NavLink to="/dashboard/profile" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
+    <FaUserEdit className="inline mr-2" />
+    My Profile
+  </NavLink>
+</li>
 
-          {/* Admin-only links */}
-          {role === 'admin' && (
-            <>
-              <li>
-                <NavLink to="/dashboard/all-users" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
-                  <MdOutlinePayments className="inline mr-2" />
-                  All Users
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/all-blood-donation-request" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
-                  <MdOutlinePayments className="inline mr-2" />
-                  All Donation Requests
-                </NavLink>
-              </li>
-            </>
-          )}
+{/* Admin-only links */}
+{role === 'admin' && (
+  <>
+    <li>
+      <NavLink to="/dashboard/all-users" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
+        <MdPeople className="inline mr-2" />
+        All Users
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/all-blood-donation-request" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
+        <RiFileList2Line className="inline mr-2" />
+        All Donation Requests
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/content-management" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
+        <MdDashboardCustomize className="inline mr-2" />
+        Content Management
+      </NavLink>
+    </li>
+  </>
+)}
 
-          {/* Volunteer-only links */}
-          {role === 'volunteer' && (
-            <li>
-              <NavLink to="/dashboard/all-blood-donation-request" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
-                <MdOutlinePayments className="inline mr-2" />
-                All Donation Requests
-              </NavLink>
-            </li>
-          )}
+{/* Volunteer-only links */}
+{role === 'volunteer' && (
+  <>
+    <li>
+      <NavLink to="/dashboard/all-blood-donation-request" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
+        <RiFileList2Line className="inline mr-2" />
+        All Donation Requests
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/content-management" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
+        <MdDashboardCustomize className="inline mr-2" />
+        Content Management
+      </NavLink>
+    </li>
+  </>
+)}
         </ul>
       </div>
     </div>

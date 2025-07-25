@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { useNavigate } from "react-router";
+
 import Swal from "sweetalert2";
 import Loading from "../Loading";
+ // <-- custom hook to get current user role
+import { Link } from "react-router";
+import useRole from "../../hooks/useRole";
 
 const AllDonationRequests = () => {
   const axiosSecure = useAxiosSecure();
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
-
+  
   const [statusFilter, setStatusFilter] = useState("");
   const [page, setPage] = useState(1);
   const limit = 5;
+
+  const { role, isLoading: roleLoading } = useRole();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["all-donation-requests", statusFilter, page],
@@ -64,7 +68,7 @@ const AllDonationRequests = () => {
     }
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading || roleLoading) return <Loading />;
   if (error) return <div>Error loading requests</div>;
 
   const requests = data?.data || [];
@@ -163,25 +167,29 @@ const AllDonationRequests = () => {
                 </td>
                 <td>
                   <div className="flex flex-col gap-4">
-                    <button
-                      onClick={() => navigate(`/dashboard/edit-donation-request/${req._id}`)}
-                      className="btn btn-warning btn-sm"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(req._id)}
-                      className="btn btn-error btn-sm"
-                      disabled={deleteMutation.isLoading}
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => navigate(`/dashboard/donation-request-details/${req._id}`)}
+                    {role === "admin" && (
+                      <>
+                        <Link
+                          to={`/dashboard/edit-donation/${req._id}`}
+                          className="btn btn-warning btn-sm"
+                        >
+                          Edit
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(req._id)}
+                          className="btn btn-error btn-sm"
+                          disabled={deleteMutation.isLoading}
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
+                    <Link
+                      to={`/donation-request/${req._id}`}
                       className="btn btn-info btn-sm"
                     >
                       View
-                    </button>
+                    </Link>
                   </div>
                 </td>
               </tr>
@@ -190,6 +198,7 @@ const AllDonationRequests = () => {
         </table>
       </div>
 
+      {/* Pagination Controls */}
       <div className="flex justify-center items-center space-x-2 mt-4">
         <button
           className="btn btn-outline"

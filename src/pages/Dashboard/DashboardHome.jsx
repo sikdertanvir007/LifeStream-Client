@@ -153,7 +153,7 @@ const DashboardHome = () => {
                       )}
                     </td>
                     <td className="space-x-4 space-y-4">
-                      <button className="btn btn-xs btn-info" onClick={() => navigate(`/dashboard/edit-donation/${req._id}`)}>Edit</button>
+                      <Link to={`/dashboard/edit-donation/${req._id}`} className="btn btn-xs btn-info" >Edit</Link>
                       <button className="btn btn-xs btn-error" onClick={() => handleDelete(req._id)}>Delete</button>
                       <Link to={`/donation-request/${req._id}`} className="btn btn-xs btn-secondary" >View</Link>
                       {req.status === 'inprogress' && (
