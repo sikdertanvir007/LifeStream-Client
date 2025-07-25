@@ -7,6 +7,7 @@ import { FaUsers, FaHandHoldingUsd, FaTint } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useRole from '../../hooks/useRole';
+import Swal from 'sweetalert2';
 
 
 const DashboardHome = () => {
@@ -66,23 +67,34 @@ const DashboardHome = () => {
     onError: () => toast.error('Failed to update status')
   });
 
-  const { mutate: deleteRequest } = useMutation({
-    mutationFn: async (id) => {
-      const res = await axiosSecure.delete(`/donation-requests/${id}`);
-      return res.data;
-    },
-    onSuccess: () => {
-      toast.success('Donation request deleted');
-      queryClient.invalidateQueries(['myRecentDonationRequests', user?.email]);
-    },
-    onError: () => toast.error('Failed to delete donation request')
-  });
-
-  const handleDelete = (id) => {
-    if (confirm('Are you sure you want to delete this donation request?')) {
-      deleteRequest(id);
-    }
-  };
+ const deleteMutation = useMutation({
+     mutationFn: async (id) => {
+       return axiosSecure.delete(`/donation-requests/${id}`);
+     },
+     onSuccess: () => queryClient.invalidateQueries(["my-donation-requests", user.email]),
+   });
+ const handleDelete = async (id) => {
+     const result = await Swal.fire({
+       title: "Are you sure?",
+       text: "You won't be able to revert this donation request!",
+       icon: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#d33",
+       cancelButtonColor: "#3085d6",
+       confirmButtonText: "Yes, delete it!",
+     });
+ 
+     if (result.isConfirmed) {
+       deleteMutation.mutate(id, {
+         onSuccess: () => {
+           Swal.fire("Deleted!", "The donation request has been deleted.", "success");
+         },
+         onError: () => {
+           Swal.fire("Failed!", "Failed to delete the request.", "error");
+         },
+       });
+     }
+   };
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
