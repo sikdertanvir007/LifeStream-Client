@@ -47,7 +47,7 @@ const DashboardLayout = () => {
       {/* Sidebar content here */}
       <LifeStreamlogo></LifeStreamlogo>
       <li>
-    <NavLink  to="/dashboard">
+    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold  ' : '')} to="/dashboard/home">
       <FaHome className="inline mr-2" />
       Home
     </NavLink>
@@ -55,13 +55,19 @@ const DashboardLayout = () => {
   <li>
     <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold  ' : '')} to="/dashboard/my-donation-requests">
       <RiHandHeartLine className="inline mr-2" />
-      My Donation Requests
+       Donation Requests
     </NavLink>
   </li>
   <li>
     <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold ' : '')} to="/dashboard/funding-history">
       <MdOutlinePayments className="inline mr-2" />
-      My Funding History
+       Funding History
+    </NavLink>
+  </li>
+  <li>
+    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold ' : '')} to="/dashboard/profile">
+      <MdOutlinePayments className="inline mr-2" />
+      My Profile
     </NavLink>
   </li>
       

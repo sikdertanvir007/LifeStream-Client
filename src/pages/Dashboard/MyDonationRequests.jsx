@@ -32,8 +32,6 @@ const MyDonationRequests = () => {
     keepPreviousData: true,
   });
 
- 
-
   const updateStatusMutation = useMutation({
     mutationFn: async ({ id, status }) => {
       return axiosSecure.patch(`/donation-requests/${id}`, { status });
@@ -48,31 +46,30 @@ const MyDonationRequests = () => {
     onSuccess: () => queryClient.invalidateQueries(["my-donation-requests", user.email]),
   });
 
- const handleDelete = async (id) => {
-  const result = await Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this donation request!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#d33",
-    cancelButtonColor: "#3085d6",
-    confirmButtonText: "Yes, delete it!",
-  });
-
-  if (result.isConfirmed) {
-    deleteMutation.mutate(id, {
-      onSuccess: () => {
-        Swal.fire("Deleted!", "The donation request has been deleted.", "success");
-      },
-      onError: () => {
-        Swal.fire("Failed!", "Failed to delete the request.", "error");
-      },
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this donation request!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
     });
-  }
-};
 
+    if (result.isConfirmed) {
+      deleteMutation.mutate(id, {
+        onSuccess: () => {
+          Swal.fire("Deleted!", "The donation request has been deleted.", "success");
+        },
+        onError: () => {
+          Swal.fire("Failed!", "Failed to delete the request.", "error");
+        },
+      });
+    }
+  };
 
-  if (isLoading) return <Loading></Loading>;
+  if (isLoading) return <Loading />;
   if (error) return <div>Error loading requests</div>;
 
   const requests = data?.data || [];
@@ -80,7 +77,15 @@ const MyDonationRequests = () => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl text-red-500 font-bold mb-4">My Donation Requests</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl text-red-500 font-bold">My Donation Requests</h2>
+        <button
+          onClick={() => navigate("/dashboard/create-donation-request")}
+          className="btn bg-red-600 text-white"
+        >
+          Create Donation Request
+        </button>
+      </div>
 
       {/* Status filter */}
       <div className="mb-4">
@@ -192,7 +197,6 @@ const MyDonationRequests = () => {
                     >
                       View
                     </button>
-                    
                   </div>
                 </td>
               </tr>

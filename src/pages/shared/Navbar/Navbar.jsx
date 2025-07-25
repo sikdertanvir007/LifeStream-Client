@@ -86,13 +86,14 @@ const Navbar = () => {
           </>
         ) :  (
           <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="avatar online w-10 rounded-full ring ring-red-400 ring-offset-base-100 ring-offset-2"
-            >
-              <img src={user.photoURL} alt="avatar" title={user.displayName} />
-            </div>
+           <div tabIndex={0} role="button" className="w-12 h-12">
+  <img
+    src={user.photoURL}
+    alt="avatar"
+    title={user.displayName}
+    className="w-full h-full rounded-full object-cover"
+  />
+</div>
             <ul
               tabIndex={0}
               className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-44 z-[100]"

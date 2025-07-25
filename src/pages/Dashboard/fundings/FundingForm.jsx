@@ -70,7 +70,7 @@ if (onSuccess) {
       />
       <CardElement className="p-2 border rounded" />
       <button type="submit" className="btn bg-red-500 text-white w-full" disabled={!stripe}>
-        Make a Fund
+        Give Fund
       </button>
       {error && <p className="text-red-500">{error}</p>}
     </form>

@@ -11,6 +11,9 @@ import MyDonationRequests from "../pages/Dashboard/MyDonationRequests";
 import CreateDonationRequest from "../pages/CreateDonationRequest";
 import ErrorPage from "../pages/Errorpage";
 import FundingHistoryPage from "../pages/Dashboard/fundings/FundingHistoryPage";
+import Profile from "../pages/Dashboard/Profile";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
+import EditDonationRequest from "../pages/Dashboard/EditDonationRequest";
 
 
 
@@ -61,6 +64,18 @@ import FundingHistoryPage from "../pages/Dashboard/fundings/FundingHistoryPage";
     {
       path: 'funding-history',
       Component: FundingHistoryPage,
+    },
+    {
+      path:'profile',
+      Component: Profile,
+    },
+    {
+      path:'home',
+      Component: DashboardHome,
+    },
+    {
+      path: 'edit-donation/:id',
+      Component: EditDonationRequest,
     }
   ]
 },
