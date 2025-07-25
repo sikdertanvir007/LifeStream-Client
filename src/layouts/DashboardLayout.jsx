@@ -76,6 +76,12 @@ const DashboardLayout = () => {
       All Users
     </NavLink>
   </li>
+  <li>
+    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-md  text-white font-bold ' : '')} to="/dashboard/all-blood-donation-request">
+      <MdOutlinePayments className="inline mr-2" />
+      All Donation Requests
+    </NavLink>
+  </li>
       
     </ul>
   </div>

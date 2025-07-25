@@ -15,6 +15,9 @@ import Profile from "../pages/Dashboard/Profile";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import EditDonationRequest from "../pages/Dashboard/EditDonationRequest";
 import AllUsersPage from "../pages/Dashboard/AllUsersPage";
+import AllDonationRequests from "../pages/Dashboard/AllDonationRequests";
+import SearchDonorsPage from "../pages/Home/SearchDonorsPage";
+
 
 
 
@@ -81,11 +84,19 @@ import AllUsersPage from "../pages/Dashboard/AllUsersPage";
     {
   path: '/dashboard/all-users',
   Component: AllUsersPage,
-}
+},
+{
+  path: "all-blood-donation-request",
+  Component: AllDonationRequests,
+},
+
   ]
 },
 
-
+{
+path:'/search-donor',
+Component: SearchDonorsPage
+},
   {
 path : "/*",
 element : <ErrorPage></ErrorPage> ,
