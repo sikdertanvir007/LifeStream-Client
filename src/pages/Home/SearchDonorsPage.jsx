@@ -1,7 +1,8 @@
 import {  useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import useAxios from '../../hooks/useAxios';
-
+import Navbar from '../shared/Navbar/Navbar'
+import Footer from '../shared/Footer/Footer';
 
 
 
@@ -66,6 +67,8 @@ const axiosInstance = useAxios();
   };
 
   return (
+    <div>
+      <div className='mb-30'>   <Navbar></Navbar>   </div>
     <div className="max-w-5xl mx-auto p-4">
       <h2 className="text-3xl font-bold text-center mb-6">🔍 Search Donors</h2>
 
@@ -149,6 +152,9 @@ const axiosInstance = useAxios();
           </>
         )}
       </div>
+
+    </div>
+    <div className='mt-30'><Footer></Footer></div>
     </div>
   );
 };

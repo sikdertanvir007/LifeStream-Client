@@ -17,6 +17,10 @@ import EditDonationRequest from "../pages/Dashboard/EditDonationRequest";
 import AllUsersPage from "../pages/Dashboard/AllUsersPage";
 import AllDonationRequests from "../pages/Dashboard/AllDonationRequests";
 import SearchDonorsPage from "../pages/Home/SearchDonorsPage";
+import PublicRequestsPage from "../pages/PublicRequestsPage";
+import DonationRequestDetail from "../pages/DonationRequestDetail";
+import Forbidden from "../pages/Forbidden/Forbidden";
+import AdminRoute from "../routes/AdminRoute";
 
 
 
@@ -83,7 +87,7 @@ import SearchDonorsPage from "../pages/Home/SearchDonorsPage";
     },
     {
   path: '/dashboard/all-users',
-  Component: AllUsersPage,
+  element: <AdminRoute><AllUsersPage></AllUsersPage></AdminRoute>
 },
 {
   path: "all-blood-donation-request",
@@ -93,9 +97,25 @@ import SearchDonorsPage from "../pages/Home/SearchDonorsPage";
   ]
 },
 
+
+
+{
+  path: '/public-requests',
+  Component: PublicRequestsPage
+},
+
+{
+  path: '/donation-request/:id',
+  element:<PrivateRoute><DonationRequestDetail></DonationRequestDetail></PrivateRoute>,
+},
 {
 path:'/search-donor',
 Component: SearchDonorsPage
+},
+
+{
+path: '/forbidden',
+Component: Forbidden
 },
   {
 path : "/*",

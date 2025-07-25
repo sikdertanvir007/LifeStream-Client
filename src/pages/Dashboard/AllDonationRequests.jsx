@@ -129,7 +129,7 @@ const AllDonationRequests = () => {
                 <td>
                   {req.status}
                   {req.status === "inprogress" && (
-                    <div className="mt-1 space-x-1">
+                    <div className="mt-1 space-x-1 space-y-2">
                       <button
                         disabled={updateStatusMutation.isLoading}
                         onClick={() =>
