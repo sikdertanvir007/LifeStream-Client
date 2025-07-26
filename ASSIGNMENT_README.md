@@ -84,4 +84,4 @@ VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
 VITE_IMGBB_API_KEY=your_imgbb_key
-VITE_BASE_URL=http://localhost:5000
+VITE_BASE_URL=https://b11a12-server-side-livid.vercel.app
