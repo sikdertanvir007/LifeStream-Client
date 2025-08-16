@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub , FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router";
 
 
@@ -48,7 +48,7 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
           <div className="flex space-x-4 text-lg">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/mehrabhasan.tanvir"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-200"
@@ -56,15 +56,15 @@ const Footer = () => {
               <FaFacebook />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://github.com/sikdertanvir007"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-200"
             >
-              <FaTwitter />
+              <FaGithub />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/sikdertanvir007/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-200"

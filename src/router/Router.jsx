@@ -26,6 +26,8 @@ import AddBlogPage from "../pages/Dashboard/AddBlogPage";
 import BlogPage from "../pages/BlogPage";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import EditBlogPage from "../pages/Dashboard/EditBlogPage";
+import AboutUs from "../pages/AboutUs";
+import Badges from "../pages/Dashboard/Badges";
 
 
 
@@ -112,6 +114,10 @@ import EditBlogPage from "../pages/Dashboard/EditBlogPage";
   path: 'content-management/edit/:id',
   Component: EditBlogPage
 },
+{
+  path: 'badges',
+  Component: Badges
+},
   ]
 },
 
@@ -142,6 +148,10 @@ Component: SearchDonorsPage
 {
 path: '/forbidden',
 Component: Forbidden
+},
+{
+  path: '/about-us',
+  Component: AboutUs
 },
   {
 path : "/*",

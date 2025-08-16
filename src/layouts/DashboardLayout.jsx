@@ -9,7 +9,8 @@ import useRole from '../hooks/useRole'; // 👈 import your hook
 import Loading from '../pages/Loading'; 
 import {  MdPeople, MdManageSearch, MdDashboardCustomize } from 'react-icons/md';
 import { FaUserEdit } from 'react-icons/fa';
-import { RiFileList2Line } from 'react-icons/ri';// Optional: loading spinner
+import { RiFileList2Line } from 'react-icons/ri';
+import { FaMedal } from "react-icons/fa";// Optional: loading spinner
 
 const DashboardLayout = () => {
   const { role, roleLoading } = useRole();
@@ -66,6 +67,12 @@ const DashboardLayout = () => {
                 <NavLink to="/dashboard/funding-history" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
                   <MdOutlinePayments className="inline mr-2" />
                   Funding History
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/badges" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
+                  <FaMedal className="inline mr-2" />
+                  Badges & Achievements
                 </NavLink>
               </li>
             

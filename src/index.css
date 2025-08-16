@@ -5,3 +5,241 @@
 * {
     font-family: "Poppins", sans-serif;
 }
+
+
+:root {
+  /* Light theme - Red color scheme for blood donation */
+  --primary-red: #dc2626;
+  --primary-red-hover: #b91c1c;
+  --primary-red-light: #fecaca;
+  --secondary-red: #ef4444;
+  
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-on-red: #ffffff;
+  
+  --border-color: #e5e7eb;
+  --border-hover: #d1d5db;
+  
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+  /* Dark theme - Adjusted red colors for better contrast */
+  --primary-red: #ef4444;
+  --primary-red-hover: #f87171;
+  --primary-red-light: #450a0a;
+  --secondary-red: #dc2626;
+  
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-on-red: #ffffff;
+  
+  --border-color: #475569;
+  --border-hover: #64748b;
+  
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+}
+
+/* Apply theme variables to your components */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-primary {
+  background-color: var(--primary-red);
+  color: var(--text-on-red);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-red-hover);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle:hover {
+  background: var(--border-hover);
+  border-color: var(--border-hover);
+}
+
+/* Badges Component Theme-Aware Styles */
+
+/* Achievement title */
+.achievement-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: bold;
+  color: var(--primary-red);
+  margin-bottom: 1.5rem;
+}
+
+/* Badge card base styles */
+.badge-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px var(--shadow);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  background-color: var(--bg-card);
+}
+
+.badge-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+/* Unlocked badge styles */
+.badge-unlocked {
+  background-color: var(--bg-card);
+  opacity: 1;
+}
+
+/* Locked badge styles */
+.badge-locked {
+  background-color: var(--bg-tertiary);
+  opacity: 0.6;
+}
+
+/* Badge icons */
+.badge-icon {
+  font-size: 3rem; /* text-5xl */
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+/* Unlocked icon - golden color */
+.icon-unlocked {
+  color: #fbbf24; /* Yellow-400 for gold effect */
+}
+
+/* In dark mode, use a brighter gold */
+[data-theme="dark"] .icon-unlocked {
+  color: #fcd34d; /* Yellow-300 for better visibility in dark mode */
+}
+
+/* Locked icon */
+.icon-locked {
+  color: var(--text-muted);
+}
+
+/* Badge name text */
+.badge-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* Achievement summary */
+.achievement-summary {
+  margin-top: 2rem;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+}
+
+/* Achievement count highlight */
+.achievement-count {
+  font-weight: bold;
+  color: var(--primary-red);
+}
+
+/* Responsive grid (using CSS Grid instead of Tailwind classes for consistency) */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .badges-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Additional hover effects for unlocked badges */
+.badge-unlocked:hover .icon-unlocked {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Pulse animation for newly unlocked badges (optional) */
+@keyframes pulse-gold {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.badge-unlocked .icon-unlocked {
+  animation: pulse-gold 2s infinite;
+}
+
+/* Remove animation on hover */
+.badge-unlocked:hover .icon-unlocked {
+  animation: none;
+}
+
+/* Special styling for different badge types (optional) */
+.badge-card[data-badge-type="medal"] .icon-unlocked {
+  color: #dc2626; /* Red medal */
+}
+
+.badge-card[data-badge-type="award"] .icon-unlocked {
+  color: #059669; /* Green award */
+}
+
+.badge-card[data-badge-type="trophy"] .icon-unlocked {
+  color: #fbbf24; /* Gold trophy */
+}

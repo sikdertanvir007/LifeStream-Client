@@ -6,8 +6,11 @@ import { Link, NavLink } from 'react-router';
 import { FaShoppingCart } from 'react-icons/fa';
 import { FaUserXmark } from 'react-icons/fa6';
 import LifeStreamlogo from '../LifeStream/LifeStreamlogo';
+import ThemeToggle from '../../../contexts/ThemeToggle';
+
 
 const Navbar = () => {
+  
   const {user,logOut} = useAuth();
   const handleLogOut = () =>{
    //console.log("user trying to logout")
@@ -23,7 +26,7 @@ const Navbar = () => {
   }
 
     return (
-       <div className="navbar bg-base-100 shadow-md p-0 px-3 md:px-8 lg:px-10 fixed top-0 left-0 w-full z-50 mb-20">
+       <div className="navbar bg-red-100 shadow-md p-0 px-3 md:px-8 lg:px-10 fixed top-0 left-0 w-full z-50 mb-20">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="cursor-pointer mr-2 lg:hidden">
@@ -35,12 +38,18 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/public-requests">Donation requests</NavLink>
-              <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/blogs">Blog</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/public-requests">Donation requests</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/blogs">Blog</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/about-us">About Us</NavLink>
                {user && (
-  <NavLink className={({isActive})=>(isActive ? 'underline text-red-500 font-bold' : '')} to="/dashboard/funding-history">
+                <>  <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/dashboard/funding-history">
     Funding links
   </NavLink>
+    <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/dashboard/badges">
+    Badges & Achievements
+  </NavLink>
+  </>
+
 )}
             
 
@@ -57,10 +66,16 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 space-x-8">
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/public-requests">Donation requests</NavLink>
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/blogs">Blog</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/about-us">About Us</NavLink>
             {user && (
+              <>
   <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard/funding-history">
      Funding links
   </NavLink>
+  <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard/badges">
+     Badges & Achievements
+  </NavLink>
+  </>
 )}
 
 
@@ -74,11 +89,12 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end flex items-center gap-4">
+          <ThemeToggle></ThemeToggle>
         {!user ? (
           <>
             <Link
               to="/login"
-              className="btn btn-sm border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+              className="btn btn-sm border border-orange-500 text-red-500 hover:bg-red-600 hover:text-white"
             >
               Login
             </Link>

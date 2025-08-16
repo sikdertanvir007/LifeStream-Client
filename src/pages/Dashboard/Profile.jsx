@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import useAuth from '../../hooks/useAuth';
+import Loading from '../Loading';
 
 const Profile = () => {
   const { user } = useAuth();
@@ -66,7 +67,7 @@ const Profile = () => {
     updateUserProfile(formData);
   };
 
-  if (isLoading) return <div className="text-center py-10">Loading profile...</div>;
+  if (isLoading) return <Loading></Loading>;
   if (isError) return <div className="text-center py-10 text-red-500">Failed to load profile.</div>;
 
   return (
