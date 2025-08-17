@@ -5,6 +5,7 @@ import ContactUs from './ContactUs/ContactUs';
 import Footer from '../shared/Footer/Footer';
 import Statistics from './Statistics';
 import BloodTypes from './BloodTypes';
+import DonationProcess from './DonationProcess';
 
 const Home = () => {
     return (
@@ -25,6 +26,10 @@ const Home = () => {
 
 <div className='pt-20 px-20 pb-30'>
     <BloodTypes></BloodTypes>
+</div>
+
+<div className='pt-20 px-20 pb-30'>
+    <DonationProcess></DonationProcess>
 </div>
 
 <Footer></Footer>
