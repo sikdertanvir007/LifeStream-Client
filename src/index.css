@@ -243,3 +243,499 @@ body {
 .badge-card[data-badge-type="trophy"] .icon-unlocked {
   color: #fbbf24; /* Gold trophy */
 }
+
+/* ===== SHARED SECTION STYLES ===== */
+section {
+  padding: 4rem 0;
+  background-color: var(--bg-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== STATISTICS SECTION ===== */
+.statistics-section {
+  background: linear-gradient(135deg, var(--primary-red-light), var(--bg-secondary));
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat-card {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ===== BLOOD TYPES SECTION ===== */
+.blood-types-section {
+  background-color: var(--bg-secondary);
+}
+
+.blood-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.blood-type-card {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.blood-type-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+.blood-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.blood-type-symbol {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-red);
+}
+
+.blood-percentage {
+  background-color: var(--primary-red-light);
+  color: var(--primary-red);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.blood-type-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.blood-compatibility {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.urgency-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Urgency Colors */
+.urgency-critical {
+  border-color: #dc2626;
+}
+
+.urgency-critical .urgency-indicator {
+  color: #dc2626;
+}
+
+.urgency-high {
+  border-color: #f59e0b;
+}
+
+.urgency-high .urgency-indicator {
+  color: #f59e0b;
+}
+
+.urgency-medium {
+  border-color: #10b981;
+}
+
+.urgency-medium .urgency-indicator {
+  color: #10b981;
+}
+
+.urgency-low {
+  border-color: #6b7280;
+}
+
+.urgency-low .urgency-indicator {
+  color: #6b7280;
+}
+
+/* ===== DONATION PROCESS SECTION ===== */
+.donation-process-section {
+  background-color: var(--bg-primary);
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .process-steps {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.process-step {
+  flex: 1;
+  position: relative;
+}
+
+.step-connector {
+  position: relative;
+  height: 2px;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .step-connector {
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    width: 2rem;
+    height: 2px;
+    margin-bottom: 0;
+  }
+}
+
+.connector-line {
+  background: linear-gradient(to right, var(--primary-red), var(--border-color));
+  height: 100%;
+  border-radius: 1px;
+}
+
+.step-card {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px var(--shadow);
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.step-number {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-red);
+  color: var(--text-on-red);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  color: var(--primary-red);
+  margin: 1rem 0;
+}
+
+.step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.step-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.step-duration {
+  background-color: var(--primary-red-light);
+  color: var(--primary-red);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.total-time {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== UPCOMING EVENTS SECTION ===== */
+.upcoming-events-section {
+  background-color: var(--bg-secondary);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.event-card {
+  background-color: var(--bg-card);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.event-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.event-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.event-emergency .event-type {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.event-community .event-type {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+.event-corporate .event-type {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.event-university .event-type {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.event-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 0 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.event-details {
+  padding: 0 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.event-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.event-detail svg {
+  color: var(--primary-red);
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.location-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.location-address {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.event-footer {
+  padding: 1.5rem;
+  background-color: var(--bg-tertiary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background-color: var(--border-color);
+  border-radius: 2px;
+  margin-right: 1rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary-red);
+  transition: width 0.3s ease;
+}
+
+/* ===== FAQ SECTION ===== */
+.faq-section {
+  background-color: var(--bg-primary);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.faq-item {
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  background-color: var(--bg-card);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.faq-icon {
+  color: var(--primary-red);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.faq-answer p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.faq-footer {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.faq-link {
+  color: var(--primary-red);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.faq-link:hover {
+  text-decoration: underline;
+}

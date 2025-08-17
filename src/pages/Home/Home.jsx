@@ -3,6 +3,8 @@ import Banner from './Banner/Banner';
 import InspiringStories from './InspiringStories/InspiringStories';
 import ContactUs from './ContactUs/ContactUs';
 import Footer from '../shared/Footer/Footer';
+import Statistics from './Statistics';
+import BloodTypes from './BloodTypes';
 
 const Home = () => {
     return (
@@ -17,6 +19,14 @@ const Home = () => {
 <div className='pt-20 px-20 pb-30'>
     <ContactUs></ContactUs>
 </div>
+<div className='pt-20 px-20 pb-30'>
+    <Statistics></Statistics>
+</div>
+
+<div className='pt-20 px-20 pb-30'>
+    
+</div>
+
 <Footer></Footer>
         </div>
     );
