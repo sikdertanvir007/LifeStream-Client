@@ -24,7 +24,7 @@ const Home = () => {
 </div>
 
 <div className='pt-20 px-20 pb-30'>
-    
+    <BloodTypes></BloodTypes>
 </div>
 
 <Footer></Footer>
