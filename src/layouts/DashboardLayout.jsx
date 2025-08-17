@@ -72,7 +72,7 @@ const DashboardLayout = () => {
               <li>
                 <NavLink to="/dashboard/badges" className={({ isActive }) => isActive ? 'btn bg-red-500 rounded-md text-white font-bold' : ''}>
                   <FaMedal className="inline mr-2" />
-                  Badges & Achievements
+                  Badges
                 </NavLink>
               </li>
             

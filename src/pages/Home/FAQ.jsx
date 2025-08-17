@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -79,7 +80,8 @@ const FAQ = () => {
         <div className="text-center mt-8">
           <p className="faq-footer">
             Still have questions? 
-            <a href="#contact" className="faq-link"> Contact our support team</a>
+            <Link to="/contact-us">
+            <a href="#contact" className="faq-link"> Contact our support team</a></Link>
           </p>
         </div>
       </div>

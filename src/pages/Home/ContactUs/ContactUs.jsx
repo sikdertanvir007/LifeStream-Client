@@ -1,7 +1,11 @@
 import React from "react";
+import Navbar from "../../shared/Navbar/Navbar";
+import Footer from "../../shared/Footer/Footer";
 
 const ContactUs = () => {
   return (
+    <div>
+      <div className="mb-20"><Navbar></Navbar></div>
     <section className="bg-red-50 shadow-2xl rounded-xl py-16 px-4 md:px-10" id="contact">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-red-600 mb-12">
@@ -77,6 +81,8 @@ const ContactUs = () => {
         </div>
       </div>
     </section>
+    <div><Footer></Footer></div>
+    </div>
   );
 };
 

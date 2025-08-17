@@ -41,6 +41,7 @@ const Navbar = () => {
               <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/public-requests">Donation requests</NavLink>
               <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/blogs">Blog</NavLink>
               <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/about-us">About Us</NavLink>
+              <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/contact-us">Contact Us</NavLink>
                {user && (
                 <>  <NavLink className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn border border-red-500 text-red-500 font-bold rounded-xl btn-sm ')} to="/dashboard/funding-history">
     Funding links
@@ -67,13 +68,14 @@ const Navbar = () => {
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm ' : 'btn btn-outline rounded-xl btn-sm ')} to="/public-requests">Donation requests</NavLink>
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/blogs">Blog</NavLink>
             <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/about-us">About Us</NavLink>
+            <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/contact-us">Contact Us</NavLink>
             {user && (
               <>
   <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard/funding-history">
      Funding links
   </NavLink>
   <NavLink  className={({isActive})=>(isActive ? 'btn bg-red-500 rounded-xl  text-white font-bold btn-sm' : 'btn btn-outline rounded-xl btn-sm ')} to="/dashboard/badges">
-     Badges & Achievements
+     Badges
   </NavLink>
   </>
 )}

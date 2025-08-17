@@ -28,6 +28,7 @@ import BlogDetailsPage from "../pages/BlogDetailsPage";
 import EditBlogPage from "../pages/Dashboard/EditBlogPage";
 import AboutUs from "../pages/AboutUs";
 import Badges from "../pages/Dashboard/Badges";
+import ContactUs from "../pages/Home/ContactUs/ContactUs";
 
 
 
@@ -152,6 +153,10 @@ Component: Forbidden
 {
   path: '/about-us',
   Component: AboutUs
+},
+{
+  path:'/contact-us',
+  Component: ContactUs
 },
   {
 path : "/*",

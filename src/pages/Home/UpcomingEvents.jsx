@@ -1,4 +1,5 @@
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock, FaUsers } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const UpcomingEvents = () => {
   const events = [
@@ -113,7 +114,7 @@ const UpcomingEvents = () => {
                        style={{width: `${((event.expectedDonors - event.slotsAvailable) / event.expectedDonors) * 100}%`}}>
                   </div>
                 </div>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">Register Now</button>
+              <Link to="/register">  <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">Register Now</button></Link>
               </div>
             </div>
           ))}

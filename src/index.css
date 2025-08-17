@@ -739,3 +739,411 @@ section {
 .faq-link:hover {
   text-decoration: underline;
 }
+
+/* ===== ELIGIBILITY SECTION ===== */
+.eligibility-section {
+  background-color: var(--bg-primary);
+  padding: 4rem 0;
+}
+
+/* Tab Navigation */
+.eligibility-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.tab-button:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--primary-red);
+}
+
+.tab-button.active {
+  background-color: var(--primary-red);
+  color: var(--text-on-red);
+  border-color: var(--primary-red);
+}
+
+/* Tab Content */
+.tab-content {
+  min-height: 400px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Requirements Grid */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.requirement-card {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.requirement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+.requirement-icon {
+  font-size: 3rem;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+}
+
+.requirement-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.requirement-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-bottom: 0.5rem;
+}
+
+.requirement-details {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Deferrals List */
+.deferrals-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.deferrals-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.deferrals-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.deferrals-header p {
+  color: var(--text-secondary);
+}
+
+.deferral-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.deferral-item:hover {
+  box-shadow: 0 4px 12px var(--shadow-hover);
+}
+
+.deferral-icon {
+  color: #f59e0b;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.deferral-content {
+  flex: 1;
+}
+
+.deferral-condition {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.deferral-duration {
+  color: var(--primary-red);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.deferral-details {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Permanent Deferrals */
+.permanent-deferrals {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.permanent-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.permanent-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.permanent-icon {
+  color: #dc2626;
+  font-size: 1rem;
+}
+
+.disclaimer {
+  background-color: var(--primary-red-light);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid var(--primary-red);
+}
+
+.disclaimer p {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Quick Check */
+.quick-check {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.quick-check-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quick-check-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.quick-check-header p {
+  color: var(--text-secondary);
+}
+
+.quick-check-questions {
+  margin-bottom: 2rem;
+}
+
+.check-question {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.question-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.check-btn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.check-btn:hover {
+  border-color: var(--primary-red);
+}
+
+.check-btn.active.yes {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: white;
+}
+
+.check-btn.active.no {
+  background-color: #ef4444;
+  border-color: #ef4444;
+  color: white;
+}
+
+/* Eligibility Result */
+.eligibility-result {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+.eligibility-result.eligible {
+  background-color: #ecfdf5;
+  border: 2px solid #10b981;
+}
+
+.eligibility-result.not-eligible {
+  background-color: #fef2f2;
+  border: 2px solid #ef4444;
+}
+
+[data-theme="dark"] .eligibility-result.eligible {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+[data-theme="dark"] .eligibility-result.not-eligible {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.result-icon {
+  font-size: 3rem;
+}
+
+.eligibility-result.eligible .result-icon {
+  color: #10b981;
+}
+
+.eligibility-result.not-eligible .result-icon {
+  color: #ef4444;
+}
+
+.result-content h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.result-content p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.eligibility-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-note svg {
+  color: var(--primary-red);
+  font-size: 1.2rem;
+}
+
+.footer-note p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .eligibility-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-button {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .permanent-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .question-buttons {
+    flex-direction: column;
+  }
+  
+  .eligibility-result {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-note {
+    flex-direction: column;
+    text-align: center;
+  }
+}

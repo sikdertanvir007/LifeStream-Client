@@ -8,6 +8,7 @@ import BloodTypes from './BloodTypes';
 import DonationProcess from './DonationProcess';
 import UpcomingEvents from './UpComingEvents';
 import FAQ from './FAQ';
+import Eligibility from './Eligibility';
 
 const Home = () => {
     return (
@@ -19,9 +20,7 @@ const Home = () => {
     <InspiringStories></InspiringStories>
 </div>
 
-<div className='pt-20 px-20 pb-30'>
-    <ContactUs></ContactUs>
-</div>
+
 <div className='pt-20 px-20 pb-30'>
     <Statistics></Statistics>
 </div>
@@ -40,6 +39,10 @@ const Home = () => {
 
 <div className='pt-20 px-20 pb-30'>
     <FAQ></FAQ>
+</div>
+
+<div className='pt-20 px-20 pb-30'>
+    <Eligibility></Eligibility>
 </div>
 
 <Footer></Footer>
